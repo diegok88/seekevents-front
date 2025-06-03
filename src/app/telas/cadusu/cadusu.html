@@ -1,1 +1,58 @@
-<p>cadusu works!</p>
+<main>
+    <div class="formulario">
+        <div class="voltar">
+            <a href="/login"><i class="bi bi-arrow-left fs-1" style="color: blue;"></i></a>
+        </div>
+        <div>
+            <form>
+                <h1>Cadastro de Usuário</h1>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cadNome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="cadNome" placeholder="Digite seu Nome">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cadCpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cadCpf" placeholder="Digite seu CPF">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cadEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="cadEmail" placeholder="Digite seu Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cadSenha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="cadSenha" placeholder="Digite sua Senha">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Perfil</label>
+                    <select class="form-select" [(ngModel)]="perfilSelecionado" name="perfil">
+                        <option [ngValue]="null" disabled selected>Selecione seu Perfil</option>
+                        @for (perfil of perfis; track perfil.cdpide) {
+                        <option [ngValue]="perfil.cdpide">
+                            {{ perfil.cdpdes }}
+                        </option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-1">
+                    <label for="cadfac" class="form-label">Link do Facebook</label>
+                    <input type="text" class="form-control" id="cadfac" placeholder="Digite seu Link do Facebook">
+                </div>
+                <div class="mb-1">
+                    <label for="cadins" class="form-label">Link do Instagram</label>
+                    <input type="text" class="form-control" id="cadins" placeholder="Digite seu Link do Instagram">
+                </div>
+                <div class="mb-1">
+                    <label for="cadtel" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="cadtel" placeholder="Digite seu Telefone">
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="button" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

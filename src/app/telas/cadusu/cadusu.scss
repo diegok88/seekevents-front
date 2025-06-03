@@ -1,0 +1,61 @@
+main {
+    margin: 10px;
+
+    h1,
+    label {
+        color: blue;
+    }
+
+    input, select {
+        border: 1px solid blue;
+        color: blue;
+    }
+
+    .form-control::placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    .alert-info {
+        background-color: #e7f1ff;
+        border-color: #d6e4ff;
+        color: #084298;
+    }
+}
+
+/* Estilos melhorados para o select */
+.form-select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid blue;
+  border-radius: 0.25rem;
+  color: blue;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230000ff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  appearance: none;
+  
+  &:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+
+  option {
+    color: blue;
+    background-color: #fff;
+    padding: 0.5rem;
+    
+    &:hover {
+      background-color: #f8f9fa !important;
+    }
+    
+    &:checked {
+      background-color: #0d6efd !important;
+      color: white !important;
+    }
+  }
+}
