@@ -1,24 +1,44 @@
 <main>
     <div class="formulario">
         <div class="voltar">
-            <a href="/inicial"><i class="bi bi-arrow-left fs-1" style="color: blue;"></i></a>  
+            <a routerLink="/inicial"><i class="bi bi-arrow-left fs-1" style="color: blue;"></i></a>
         </div>
-        <form>
+        <form (ngSubmit)="login()">
             <h1>Login</h1>
-            <div class="mb-1">
-                <label for="loginEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="loginEmail" placeholder="Digite seu email">
+
+            <!-- Campo Email -->
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input name="email" type="email" class="form-control" id="loginEmail" placeholder="Digite seu email"
+                    [(ngModel)]="usuario.email" required>
             </div>
-            <div class="mb-1">
-                <label for="loginSenha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="loginSenha" placeholder="Digite sua senha">
+
+            <!-- Campo Senha -->
+            <div class="form-group">
+                <label for="loginSenha">Senha</label>
+                <input name="senha" type="password" class="form-control" id="loginSenha" placeholder="Digite sua senha"
+                    [(ngModel)]="usuario.senha" required>
             </div>
+
+            <!-- Mensagem de Erro -->
+            <div *ngIf="mensagemErro" class="alert alert-danger mt-2">
+                {{ mensagemErro }}
+            </div>
+
+            <!-- Botão Entrar -->
             <div class="d-flex justify-content-center mt-3">
-                <button type="button" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="btn btn-primary" [disabled]="carregando">
+                    <span *ngIf="!carregando">Entrar</span>
+                    <span *ngIf="carregando">
+                        <span class="spinner-border spinner-border-sm" role="status"></span>
+                        Carregando...
+                    </span>
+                </button>
             </div>
+
             <p>Não possui conta?</p>
             <nav>
-                <a href="/cadusu">Cadastra-se</a>
+                <a routerLink="/cadusu">Cadastra-se</a>
             </nav>
         </form>
     </div>

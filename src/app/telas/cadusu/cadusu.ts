@@ -19,14 +19,14 @@ export class Cadusu implements OnInit {
   perfilSelecionado: number | null = null;
 
   usuario: Usuario = {
-    cdunom: ' ',
-    cducpf: ' ',
-    cduema: ' ',
-    cdusen: ' ',
+    cdunom: '',
+    cducpf: '',
+    cduema: '',
+    cdusen: '',
     cduper: 0,
-    cdufac: ' ',
-    cduins: ' ',
-    cdutel: ' ',
+    cdufac: '',
+    cduins: '',
+    cdutel: '',
     cdusta: 'ativo',
   }
 

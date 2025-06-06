@@ -4,31 +4,35 @@
             <a href="/login"><i class="bi bi-arrow-left fs-1" style="color: blue;"></i></a>
         </div>
         <div>
-            <form>
+            <form (ngSubmit)="salvar()">
                 <h1>Cadastro de Usuário</h1>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="cadNome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="cadNome" placeholder="Digite seu Nome">
+                        <input name="cdunom" type="text" class="form-control" id="cadNome" placeholder="Digite seu Nome" 
+                        [(ngModel)]="usuario.cdunom">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cadCpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cadCpf" placeholder="Digite seu CPF">
+                        <input name="cducpf" type="text" class="form-control" id="cadCpf" placeholder="Digite seu CPF" 
+                        [(ngModel)]="usuario.cducpf">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="cadEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="cadEmail" placeholder="Digite seu Email">
+                        <input name="cduema" type="email" class="form-control" id="cadEmail" placeholder="Digite seu Email" 
+                        [(ngModel)]="usuario.cduema">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cadSenha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="cadSenha" placeholder="Digite sua Senha">
+                        <input name="cdusen" type="password" class="form-control" id="cadSenha" placeholder="Digite sua Senha" 
+                        [(ngModel)]="usuario.cdusen">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Perfil</label>
-                    <select class="form-select" [(ngModel)]="perfilSelecionado" name="perfil">
+                    <select class="form-select" [(ngModel)]="usuario.cduper" name="cduper">
                         <option [ngValue]="null" disabled selected>Selecione seu Perfil</option>
                         @for (perfil of perfis; track perfil.cdpide) {
                         <option [ngValue]="perfil.cdpide">
@@ -39,18 +43,21 @@
                 </div>
                 <div class="mb-1">
                     <label for="cadfac" class="form-label">Link do Facebook</label>
-                    <input type="text" class="form-control" id="cadfac" placeholder="Digite seu Link do Facebook">
+                    <input name="cdufac" type="text" class="form-control" id="cadfac" placeholder="Digite seu Link do Facebook" 
+                    [(ngModel)]="usuario.cdufac">
                 </div>
                 <div class="mb-1">
                     <label for="cadins" class="form-label">Link do Instagram</label>
-                    <input type="text" class="form-control" id="cadins" placeholder="Digite seu Link do Instagram">
+                    <input name="cduins" type="text" class="form-control" id="cadins" placeholder="Digite seu Link do Instagram"
+                    [(ngModel)]="usuario.cduins">
                 </div>
                 <div class="mb-1">
                     <label for="cadtel" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="cadtel" placeholder="Digite seu Telefone">
+                    <input name="cdutel" type="text" class="form-control" id="cadtel" placeholder="Digite seu Telefone"
+                    [(ngModel)]="usuario.cdutel">
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
             </form>
         </div>
