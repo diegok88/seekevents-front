@@ -1,5 +1,5 @@
 export interface CatEmp {
-    cteide: number;
+    cteide?: number;
     ctedes: string;
     ctesta: string;
 }

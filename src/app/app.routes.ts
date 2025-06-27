@@ -5,6 +5,7 @@ import { Principal } from './telas/principal/principal';
 import { AuthGuard } from './service/auth.guard';
 import { Login } from './telas/login/login';
 import { CadastroEmpresa } from './telas/cademp/cademp';
+import { CadastroEvento } from './telas/cadeve/cadeve';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'inicial', pathMatch: 'full' },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'cadusu', component: Cadusu },
   { path: 'cademp', component: CadastroEmpresa, canActivate: [AuthGuard] },
   { path: 'principal', component: Principal, canActivate: [AuthGuard] },
+  { path: 'cadeve', component: CadastroEvento, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'inicial' }
 ];

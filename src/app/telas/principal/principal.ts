@@ -3,16 +3,19 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { PopupCadastro } from '../popup-cadastro/popup-cadastro';
+import { Listaevento } from '../listaevento/listaevento';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, PopupCadastro],
+  imports: [CommonModule, RouterLink, PopupCadastro, Listaevento],
   templateUrl: './principal.html',
   styleUrls: ['./principal.scss']
 })
 export class Principal implements OnInit {
   usuariologado: string = '';
+  perfillogado: number = 0;
   showLoginOverlay = false;
   @ViewChild('footerElement') footerElement!: ElementRef<HTMLElement>;
 
@@ -73,6 +76,7 @@ export class Principal implements OnInit {
     const usuario = this.authService.getUsuarioLogado();
     if (usuario) {
       this.usuariologado = usuario.cdunom;
+      this.perfillogado = usuario.cduper;
     } else {
       console.error('Nenhum usuário logado encontrado!');
       this.router.navigate(['/login']);
@@ -82,6 +86,10 @@ export class Principal implements OnInit {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  cadastroEvento(): void {
+    this.router.navigate(['/cadeve']);
   }
 
   filterByCategory(category: string): void {

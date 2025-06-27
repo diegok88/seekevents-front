@@ -1,0 +1,27 @@
+<div class="eventos-container">
+  <h2 class="eventos-titulo">
+    <span class="icone-calendario">📅</span> Próximos Eventos
+  </h2>
+  
+  <div class="eventos-lista">
+    <div *ngFor="let evento of eventos" class="evento-card">
+      <img [src]="evento.cevima || 'assets/images/default-event.jpg'" 
+           [alt]="evento.cevnom" 
+           class="evento-imagem">
+      
+      <div class="evento-conteudo">
+        <h3 class="evento-titulo">{{ evento.cevnom }}</h3>
+        <p class="evento-descricao">{{ evento.cevdes }}</p>
+        
+        <div class="evento-data">
+          <span class="icone-data">📅</span>
+          {{ evento.cevdat | date:'dd/MM/yyyy' }}
+        </div>
+        
+        <button class="evento-botao" (click)="viewEventDetails(evento.cevide || 0)">
+          Ver Detalhes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

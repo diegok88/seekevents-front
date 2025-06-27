@@ -1,0 +1,71 @@
+<main>
+  <div class="conteudo-principal">
+    <div class="formulario">
+
+      <form (ngSubmit)="salvar()">
+        <h1>Cadastro de Evento</h1>
+
+        <div class="mb-1">
+          <label for="cevnom" class="form-label">Nome da Evento</label>
+          <input name="cevnom" type="text" class="form-control" id="cevnom" placeholder="Digite o nome da evento"
+            [(ngModel)]="evento.cevnom">
+        </div>
+        <div class="mb-1">
+          <label for="cevdes" class="form-label">Descrição do Evento</label>
+          <input name="cevdes" type="text" class="form-control" id="cevdes"
+            placeholder="Digite uma breve descrição do evento" [(ngModel)]="evento.cevdes">
+        </div>
+        <div class="mb-1">
+          <label for="cevdat" class="form-label">Data do Evento</label>
+          <input name="cevdat" type="date" class="form-control" id="cevdat"
+            placeholder="Digite uma breve descrição do evento" [(ngModel)]="evento.cevdat">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Categoria da Evento</label>
+          <select class="form-select" [(ngModel)]="evento.cevcae" name="cevcae">
+            <option [ngValue]="null" disabled selected>Selecione a Categoria do Evento</option>
+            @for (categoria of categoria; track categoria.caeide) {
+            <option [ngValue]="categoria.caeide">
+              {{ categoria.caedes }}
+            </option>
+            }
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tipo de Divulgação</label>
+          <select class="form-select" [(ngModel)]="evento.cevtad" name="cevtad">
+            <option [ngValue]="null" disabled selected>Selecione a Tipo de Divulgação</option>
+            @for (divulgacao of divulgacao; track divulgacao.tadide) {
+            <option [ngValue]="divulgacao.tadide">
+              {{ divulgacao.taddes }}
+            </option>
+            }
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Forma de Pagamento</label>
+          <select class="form-select" [(ngModel)]="evento.cevfpa" name="cevfpa">
+            <option [ngValue]="null" disabled selected>Selecione a forma de pagamento</option>
+            @for (pagamento of pagamento; track pagamento.fpaide) {
+            <option [ngValue]="pagamento.fpaide">
+              {{ pagamento.fpades }}
+            </option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Selecione a Imagem:
+          </label>
+          <input id="file-upload" type="file" accept="image/*" (change)="onFileSelected($event)">
+          <div *ngIf="selectedFile" class="file-info">
+            Arquivo selecionado: {{ selectedFile.name }}
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

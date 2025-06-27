@@ -20,6 +20,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" (click)="cadastroEvento()" style="cursor: pointer;">
+                        <i class="bi bi-box-arrow-right"></i> Cadastrar Evento
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" (click)="logout()" style="cursor: pointer;">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
@@ -86,6 +91,7 @@
             </div>
         </div>
     </div>
+    <app-listaevento/>
 </main>
 
 <footer #footerElement class="footer bg-dark text-white py-5">
@@ -115,4 +121,7 @@
         </div>
     </div>
 </footer>
-<app-popup-cadastro></app-popup-cadastro>
+@if (perfillogado === 2){
+    <app-popup-cadastro></app-popup-cadastro>
+}
+

@@ -1,5 +1,5 @@
 export interface CadPer {
-  cdpide: number;
+  cdpide?: number;
   cdpdes: string;
   cdpsta: string;  
 }

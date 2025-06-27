@@ -49,6 +49,6 @@ export class Cadusu implements OnInit {
   }
 
   salvar(): void {
-    this.cadUsuService.cadastrarUsuario(this.usuario).subscribe((res) => { this.router.navigate(['/login'])})
+    this.cadUsuService.cadastrarUsuario(this.usuario).subscribe((res) => { this.router.navigate(['/login']) })
   }
 }
